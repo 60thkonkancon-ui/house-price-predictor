@@ -1,13 +1,8 @@
 import streamlit as st
 import pickle
 import numpy as np
-import os
 
-# Load model from folder
-model_path = os.path.join("housepriceAI", "house_price_model.pkl")
-
-with open(model_path, "rb") as file:
-    model = pickle.load(file)
+model = pickle.load(open("housepriceAI/house_price_model.pkl","rb"))
 
 st.title("House Price Prediction")
 
@@ -22,7 +17,7 @@ Longitude = st.number_input("Longitude")
 
 if st.button("Predict"):
 
-    data = np.array([[MedInc, HouseAge, AveRooms, AveBedrms, Population, AveOccup, Latitude, Longitude]])
+    data = np.array([[MedInc,HouseAge,AveRooms,AveBedrms,Population,AveOccup,Latitude,Longitude]])
 
     prediction = model.predict(data)
 
