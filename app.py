@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 
-model = pickle.load(open("house_price_model.pkl","rb"))
+model = pickle.load(open("housepriceAI/house_price_model.pkl","rb"))
 
 st.title("House Price Prediction")
 
@@ -22,3 +22,4 @@ if st.button("Predict"):
     prediction = model.predict(data)
 
     st.success(f"Predicted Price: ${prediction[0]:,.2f}")
+
